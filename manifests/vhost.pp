@@ -134,18 +134,55 @@ define apache::vhost(
   $apache_version                                                                   = $::apache::apache_version,
   Optional[Enum['on', 'off', 'nodecode']] $allow_encoded_slashes                    = undef,
   $suexec_user_group                                                                = undef,
-  $passenger_app_root                                                               = undef,
+  $passenger_allow_encoded_slashes                                                  = undef,
   $passenger_app_env                                                                = undef,
-  $passenger_ruby                                                                   = undef,
-  $passenger_min_instances                                                          = undef,
-  $passenger_max_requests                                                           = undef,
-  $passenger_start_timeout                                                          = undef,
-  $passenger_pre_start                                                              = undef,
-  $passenger_user                                                                   = undef,
+  $passenger_app_group_name                                                         = undef,
+  $passenger_app_root                                                               = undef,
+  $passenger_app_type                                                               = undef,
+  $passenger_buffer_response                                                        = undef,
+  $passenger_buffer_upload                                                          = undef,
+  $passenger_concurrency_model                                                      = undef,
+  $passenger_debugger                                                               = undef,
+  $passenger_enabled                                                                = undef,
+  $passenger_error_override                                                         = undef,
+  $passenger_force_max_concurrent_requests_per_process                              = undef,
+  $passenger_friendly_error_pages                                                   = undef,
+  $passenger_group                                                                  = undef,
   $passenger_high_performance                                                       = undef,
+  $passenger_load_shell_envvars                                                     = undef,
+  $passenger_lve_min_uid                                                            = undef,
+  $passenger_max_instances                                                          = undef,
+  $passenger_max_preloader_idle_time                                                = undef,
+  $passenger_max_request_queue_size                                                 = undef,
+  $passenger_max_request_time                                                       = undef,
+  $passenger_max_requests                                                           = undef,
+  $passenger_memory_limit                                                           = undef,
+  $passenger_meteor_app_settings                                                    = undef,
+  $passenger_min_instances                                                          = undef,
   $passenger_nodejs                                                                 = undef,
-  Optional[Boolean] $passenger_sticky_sessions                                      = undef,
+  $passenger_pre_start                                                              = undef,
+  $passenger_python                                                                 = undef,
+  $passenger_resist_deployment_errors                                               = undef,
+  $passenger_resolve_symlinks_in_document_root                                      = undef,
+  $passenger_restart_dir                                                            = undef,
+  $passenger_rolling_restarts                                                       = undef,
+  $passenger_ruby                                                                   = undef,
+  $passenger_spawn_method                                                           = undef,
+  $passenger_start_timeout                                                          = undef,
   $passenger_startup_file                                                           = undef,
+  Optional[Boolean] $passenger_sticky_sessions                                      = undef,
+  $passenger_sticky_sessions_cookie_name                                            = undef,
+  $passenger_thread_count                                                           = undef,
+  $passenger_user                                                                   = undef,
+  $rack_env                                                                         = undef,
+  $rails_env                                                                        = undef,
+  $union_station_filter                                                             = undef,
+  $union_station_gateway_address                                                    = undef,
+  $union_station_gateway_cert                                                       = undef,
+  $union_station_gateway_port                                                       = undef,
+  $union_station_key                                                                = undef,
+  $union_station_proxy_address                                                      = undef,
+  $union_station_support                                                            = undef,
   $add_default_charset                                                              = undef,
   $modsec_disable_vhost                                                             = undef,
   $modsec_disable_ids                                                               = undef,
@@ -248,8 +285,22 @@ define apache::vhost(
     include ::apache::mod::suexec
   }
 
-  if $passenger_app_root or $passenger_app_env or $passenger_ruby or $passenger_min_instances or $passenger_max_requests or $passenger_start_timeout or $passenger_pre_start or $passenger_user or $passenger_high_performance or $passenger_nodejs or $passenger_sticky_sessions or $passenger_startup_file {
-    include ::apache::mod::passenger
+  # load passenger if needed and not loaded
+    if $passenger_allow_encoded_slashes or $passenger_app_env or $passenger_app_group_name or $passenger_app_root or
+      $passenger_app_type or $passenger_buffer_response or $passenger_buffer_upload or
+      $passenger_concurrency_model or $passenger_debugger or $passenger_enabled or $passenger_error_override or
+      $passenger_force_max_concurrent_requests_per_process or $passenger_friendly_error_pages or $passenger_group or
+      $passenger_high_performance or $passenger_load_shell_envvars or $passenger_lve_min_uid or $passenger_max_instances or
+      $passenger_max_preloader_idle_time or $passenger_max_request_queue_size or $passenger_max_request_time or $passenger_max_requests or
+      $passenger_memory_limit or $passenger_meteor_app_settings or $passenger_min_instances or $passenger_nodejs or $passenger_pre_start or
+      $passenger_python or $passenger_resist_deployment_errors or $passenger_resolve_symlinks_in_document_root or $passenger_restart_dir or
+      $passenger_rolling_restarts or $passenger_ruby or $passenger_spawn_method or $passenger_start_timeout or $passenger_startup_file or
+      $passenger_sticky_sessions or $passenger_sticky_sessions_cookie_name or $passenger_thread_count or $passenger_user or $rack_env or
+      $rails_env or $union_station_filter or $union_station_gateway_address or $union_station_gateway_cert or $union_station_gateway_port or
+      $union_station_key or $union_station_proxy_address or $union_station_support or $passenger_base_uris or $rack_base_uris {
+    if ! defined(Class['apache::mod::passenger']) {
+      include ::apache::mod::passenger
+    }
   }
 
   # Configure the defaultness of a vhost
@@ -291,9 +342,6 @@ define apache::vhost(
     }
   }
 
-
-  # Is apache::mod::passenger enabled (or apache::mod['passenger'])
-  $passenger_enabled = defined(Apache::Mod['passenger'])
 
   # Is apache::mod::shib enabled (or apache::mod['shib2'])
   $shibboleth_enabled = defined(Apache::Mod['shib2'])
@@ -426,17 +474,6 @@ define apache::vhost(
     }
   }
 
-  # Load mod_passenger if needed and not yet loaded
-  if $rack_base_uris {
-    if ! defined(Class['apache::mod::passenger']) {
-      include ::apache::mod::passenger
-    }
-  }
-
-  # Load mod_passenger if needed and not yet loaded
-  if $passenger_base_uris {
-      include ::apache::mod::passenger
-  }
 
   # Load mod_fastci if needed and not yet loaded
   if $fastcgi_server and $fastcgi_socket {
@@ -757,26 +794,6 @@ define apache::vhost(
   }
 
   # Template uses:
-  # - $rack_base_uris
-  if $rack_base_uris {
-    concat::fragment { "${name}-rack":
-      target  => "${priority_real}${filename}.conf",
-      order   => 170,
-      content => template('apache/vhost/_rack.erb'),
-    }
-  }
-
-  # Template uses:
-  # - $passenger_base_uris
-  if $passenger_base_uris {
-    concat::fragment { "${name}-passenger_uris":
-      target  => "${priority_real}${filename}.conf",
-      order   => 175,
-      content => template('apache/vhost/_passenger_base_uris.erb'),
-    }
-  }
-
-  # Template uses:
   # - $redirect_source
   # - $redirect_dest
   # - $redirect_status
@@ -990,18 +1007,70 @@ define apache::vhost(
   }
 
   # Template uses:
-  # - $passenger_app_root
-  # - $passenger_app_env
-  # - $passenger_ruby
-  # - $passenger_min_instances
-  # - $passenger_max_requests
-  # - $passenger_start_timeout
-  # - $passenger_pre_start
-  # - $passenger_user
-  # - $passenger_nodejs
-  # - $passenger_sticky_sessions
   # - $passenger_startup_file
-  if $passenger_app_root or $passenger_app_env or $passenger_ruby or $passenger_min_instances or $passenger_start_timeout or $passenger_pre_start or $passenger_user or $passenger_nodejs or $passenger_sticky_sessions or $passenger_startup_file{
+  # - $passenger_allow_encoded_slashes
+  # - $passenger_app_env
+  # - $passenger_app_group_name
+  # - $passenger_app_root
+  # - $passenger_app_type
+  # - $passenger_buffer_response
+  # - $passenger_buffer_upload
+  # - $passenger_concurrency_model
+  # - $passenger_debugger
+  # - $passenger_enabled
+  # - $passenger_error_override
+  # - $passenger_force_max_concurrent_requests_per_process
+  # - $passenger_friendly_error_pages
+  # - $passenger_group
+  # - $passenger_high_performance
+  # - $passenger_load_shell_envvars
+  # - $passenger_lve_min_uid
+  # - $passenger_max_instances
+  # - $passenger_max_preloader_idle_time
+  # - $passenger_max_request_queue_size
+  # - $passenger_max_request_time
+  # - $passenger_max_requests
+  # - $passenger_memory_limit
+  # - $passenger_meteor_app_settings
+  # - $passenger_min_instances
+  # - $passenger_nodejs
+  # - $passenger_pre_start
+  # - $passenger_python
+  # - $passenger_resist_deployment_errors
+  # - $passenger_resolve_symlinks_in_document_root
+  # - $passenger_restart_dir
+  # - $passenger_rolling_restarts
+  # - $passenger_ruby
+  # - $passenger_spawn_method
+  # - $passenger_start_timeout
+  # - $passenger_startup_file
+  # - $passenger_sticky_sessions
+  # - $passenger_sticky_sessions_cookie_name
+  # - $passenger_thread_count
+  # - $passenger_user
+  # - $rack_env
+  # - $rails_env
+  # - $union_station_filter
+  # - $union_station_gateway_address
+  # - $union_station_gateway_cert
+  # - $union_station_gateway_port
+  # - $union_station_key
+  # - $union_station_proxy_address
+  # - $union_station_support
+  # - $passenger_base_uris
+  # - $rack_base_uris
+  if $passenger_allow_encoded_slashes or $passenger_app_env or $passenger_app_group_name or $passenger_app_root or
+      $passenger_app_type or $passenger_buffer_response or $passenger_buffer_upload or
+      $passenger_concurrency_model or $passenger_debugger or $passenger_enabled or $passenger_error_override or
+      $passenger_force_max_concurrent_requests_per_process or $passenger_friendly_error_pages or $passenger_group or
+      $passenger_high_performance or $passenger_load_shell_envvars or $passenger_lve_min_uid or $passenger_max_instances or
+      $passenger_max_preloader_idle_time or $passenger_max_request_queue_size or $passenger_max_request_time or $passenger_max_requests or
+      $passenger_memory_limit or $passenger_meteor_app_settings or $passenger_min_instances or $passenger_nodejs or $passenger_pre_start or
+      $passenger_python or $passenger_resist_deployment_errors or $passenger_resolve_symlinks_in_document_root or $passenger_restart_dir or
+      $passenger_rolling_restarts or $passenger_ruby or $passenger_spawn_method or $passenger_start_timeout or $passenger_startup_file or
+      $passenger_sticky_sessions or $passenger_sticky_sessions_cookie_name or $passenger_thread_count or $passenger_user or $rack_env or
+      $rails_env or $union_station_filter or $union_station_gateway_address or $union_station_gateway_cert or $union_station_gateway_port or
+      $union_station_key or $union_station_proxy_address or $union_station_support or $passenger_base_uris or $rack_base_uris {
     concat::fragment { "${name}-passenger":
       target  => "${priority_real}${filename}.conf",
       order   => 300,
