@@ -1,36 +1,157 @@
-<% if @passenger_app_root -%>
-  PassengerAppRoot <%= @passenger_app_root %>
-<% end -%>
+<% if @passenger_allow_encoded_slashes -%>
+    PassengerAllowEncodedSlashes <%= @passenger_allow_encoded_slashes %>
+<%- end -%>
 <% if @passenger_app_env -%>
-  PassengerAppEnv <%= @passenger_app_env %>
+    PassengerAppEnv <%= @passenger_app_env %>
+<%- end -%>
+<% if @passenger_app_group_name -%>
+    PassengerAppGroupName <%= @passenger_app_group_name %>
+<%- end -%>
+<% if @passenger_app_root -%>
+    PassengerAppRoot "<%= @passenger_app_root %>"
+<%- end -%>
+<% if @passenger_app_type -%>
+    PassengerAppType <%= @passenger_app_type %>
+<%- end -%>
+<% if @passenger_base_uris -%>
+  <% Array(@passenger_base_uris).each do |uri| -%>
+  PassengerBaseURI <%= uri %>
+  <% end -%>
 <% end -%>
-<% if @passenger_ruby -%>
-  PassengerRuby <%= @passenger_ruby %>
-<% end -%>
-<% if @passenger_min_instances -%>
-  PassengerMinInstances <%= @passenger_min_instances %>
-<% end -%>
-<% if @passenger_max_requests -%>
-  PassengerMaxRequests <%= @passenger_max_requests %>
-<% end -%>
-<% if @passenger_start_timeout -%>
-  PassengerStartTimeout <%= @passenger_start_timeout %>
-<% end -%>
-<% if @passenger_pre_start -%>
-  PassengerPreStart <%= @passenger_pre_start %>
-<% end -%>
-<% if @passenger_user -%>
-  PassengerUser <%= @passenger_user %>
-<% end -%>
+<% if @passenger_buffer_response -%>
+    PassengerBufferResponse <%= @passenger_buffer_response %>
+<%- end -%>
+<% if @passenger_buffer_upload -%>
+    PassengerBufferUpload <%= @passenger_buffer_upload %>
+<%- end -%>
+<% if @passenger_concurrency_model -%>
+    PassengerConcurrencyModel <%= @passenger_concurrency_model %>
+<%- end -%>
+<% if @passenger_debugger -%>
+    PassengerDebugger <%= @passenger_debugger %>
+<%- end -%>
+<% if @passenger_enabled -%>
+    PassengerEnabled <%= @passenger_enabled %>
+<%- end -%>
+<% if @passenger_error_override -%>
+    PassengerErrorOverride <%= @passenger_error_override %>
+<%- end -%>
+<% if @passenger_force_max_concurrent_requests_per_process -%>
+    PassengerForceMaxConcurrentRequestsPerProcess <%= @passenger_force_max_concurrent_requests_per_process %>
+<%- end -%>
+<% if @passenger_friendly_error_pages -%>
+    PassengerFriendlyErrorPages <%= @passenger_friendly_error_pages %>
+<%- end -%>
+<% if @passenger_group -%>
+    PassengerGroup <%= @passenger_group %>
+<%- end -%>
 <% if @passenger_high_performance -%>
-  PassengerHighPerformance <%= scope.function_bool2httpd([@passenger_high_performance]) %>
-<% end -%>
+    PassengerHighPerformance <%= scope.function_bool2httpd([@passenger_high_performance]) %>
+<%- end -%>
+<% if @passenger_load_shell_envvars -%>
+    PassengerLoadShellEnvvars <%= @passenger_load_shell_envvars %>
+<%- end -%>
+<% if @passenger_lve_min_uid -%>
+    PassengerLveMinUid <%= @passenger_lve_min_uid %>
+<%- end -%>
+<% if @passenger_max_instances -%>
+    PassengerMaxInstances <%= @passenger_max_instances %>
+<%- end -%>
+<% if @passenger_max_preloader_idle_time -%>
+    PassengerMaxPreloaderIdleTime <%= @passenger_max_preloader_idle_time %>
+<%- end -%>
+<% if @passenger_max_request_queue_size -%>
+    PassengerMaxRequestQueueSize <%= @passenger_max_request_queue_size %>
+<%- end -%>
+<% if @passenger_max_request_time -%>
+    PassengerMaxRequestTime <%= @passenger_max_request_time %>
+<%- end -%>
+<% if @passenger_max_requests -%>
+    PassengerMaxRequests <%= @passenger_max_requests %>
+<%- end -%>
+<% if @passenger_memory_limit -%>
+    PassengerMemoryLimit <%= @passenger_memory_limit %>
+<%- end -%>
+<% if @passenger_meteor_app_settings -%>
+    PassengerMeteorAppSettings "<%= @passenger_meteor_app_settings %>"
+<%- end -%>
+<% if @passenger_min_instances -%>
+    PassengerMinInstances <%= @passenger_min_instances %>
+<%- end -%>
 <% if @passenger_nodejs -%>
-  PassengerNodejs <%= @passenger_nodejs -%>
-<% end -%>
-<% if @passenger_sticky_sessions -%>
-  PassengerStickySessions <%= scope.function_bool2httpd([@passenger_sticky_sessions]) %>
-<% end -%>
+    PassengerNodejs "<%= @passenger_nodejs %>"
+<%- end -%>
+<% if @passenger_pre_start -%>
+    PassengerPreStart <%= @passenger_pre_start %>
+<%- end -%>
+<% if @passenger_python -%>
+    PassengerPython "<%= @passenger_python %>"
+<%- end -%>
+<% if @passenger_resist_deployment_errors -%>
+    PassengerResistDeploymentErrors <%= @passenger_resist_deployment_errors %>
+<%- end -%>
+<% if @passenger_resolve_symlinks_in_document_root -%>
+    PassengerResolveSymlinksInDocumentRoot <%= @passenger_resolve_symlinks_in_document_root %>
+<%- end -%>
+<% if @passenger_restart_dir -%>
+    PassengerRestartDir "<%= @passenger_restart_dir %>"
+<%- end -%>
+<% if @passenger_rolling_restarts -%>
+    PassengerRollingRestarts <%= @passenger_rolling_restarts %>
+<%- end -%>
+<% if @passenger_ruby -%>
+    PassengerRuby "<%= @passenger_ruby %>"
+<%- end -%>
+<% if @passenger_spawn_method -%>
+    PassengerSpawnMethod <%= @passenger_spawn_method %>
+<%- end -%>
+<% if @passenger_start_timeout -%>
+    PassengerStartTimeout <%= @passenger_start_timeout %>
+<%- end -%>
 <% if @passenger_startup_file -%>
-  PassengerStartupFile <%= @passenger_startup_file -%>
+    PassengerStartupFile "<%= @passenger_startup_file %>"
+<%- end -%>
+<% if @passenger_sticky_sessions -%>
+    PassengerStickySessions <%= scope.function_bool2httpd([@passenger_sticky_sessions]) %>
+<%- end -%>
+<% if @passenger_sticky_sessions_cookie_name -%>
+    PassengerStickySessionsCookieName <%= @passenger_sticky_sessions_cookie_name %>
+<%- end -%>
+<% if @passenger_thread_count -%>
+    PassengerThreadCount <%= @passenger_thread_count %>
+<%- end -%>
+<% if @passenger_user -%>
+    PassengerUser <%= @passenger_user %>
+<%- end -%>
+<% if @rack_env -%>
+    RackEnv <%= @rack_env %>
+<%- end -%>
+<% if @rails_env -%>
+    RailsEnv <%= @rails_env %>
+<%- end -%>
+<% if @union_station_filter -%>
+    UnionStationFilter "<%= @union_station_filter %>"
+<%- end -%>
+<% if @union_station_gateway_address -%>
+    UnionStationGatewayAddress <%= @union_station_gateway_address %>
+<%- end -%>
+<% if @union_station_gateway_cert -%>
+    UnionStationGatewayCert "<%= @union_station_gateway_cert %>"
+<%- end -%>
+<% if @union_station_gateway_port -%>
+    UnionStationGatewayPort <%= @union_station_gateway_port %>
+<%- end -%>
+<% if @union_station_key -%>
+    UnionStationKey <%= @union_station_key %>
+<%- end -%>
+<% if @union_station_proxy_address -%>
+    UnionStationProxyAddress <%= @union_station_proxy_address %>
+<%- end -%>
+<% if @union_station_support -%>
+    UnionStationSupport <%= @union_station_support %>
+<%- end -%>
+<% if @rack_base_uris -%>
+  <% Array(@rack_base_uris).each do |uri| -%>
+  RackBaseURI <%= uri %>
+  <% end -%>
 <% end -%>
