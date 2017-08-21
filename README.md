@@ -4115,8 +4115,7 @@ Default: `undef`
 
 Sets [`RackEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#rackenv)
 
-Values: String specifying - RailsEnv name
-       name
+Values: String specifying -  name
 
 Default: `undef`
 
@@ -4125,63 +4124,6 @@ Default: `undef`
 Sets [`RailsEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#railsenv)
 
 Values: String specifying - name
-      RackEnv name
-
-Default: `undef`
-
-##### `union_station_filter`
-
-Sets [`UnionStationFilter`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationfilter)
-
-Values: String specifying - "string"
-
-Default: `undef`
-
-##### `union_station_gateway_address`
-
-Sets [`UnionStationGatewayAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewayaddress)
-
-Values: String specifying - gateway_hostname
-
-Default: `undef`
-
-##### `union_station_gateway_cert`
-
-Sets [`UnionStationGatewayCert`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewaycert)
-
-Values: String specifying - gateway_pinned_certificate_file
-
-Default: `undef`
-
-##### `union_station_gateway_port`
-
-Sets [`UnionStationGatewayPort`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewayport)
-
-Values: String specifying - gateway_port
-
-Default: `undef`
-
-##### `union_station_key`
-
-Sets [`UnionStationKey`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationkey)
-
-Values: String specifying - your_application_key
-
-Default: `undef`
-
-##### `union_station_proxy_address`
-
-Sets [`UnionStationProxyAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationproxyaddress)
-
-Values: String specifying - scheme://user:password@proxy_host:proxy_port
-
-Default: `undef`
-
-##### `union_station_support`
-
-Sets [`UnionStationSupport`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationsupport)
-
-Values: String specifying - on|off
 
 Default: `undef`
 
