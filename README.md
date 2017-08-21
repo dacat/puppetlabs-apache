@@ -2242,7 +2242,7 @@ $mount_file_content = {
 
 Installs and manages [`mod_passenger`][]. For Red Hat-based systems, ensure that you meet the minimum requirements described in the [passenger docs](https://www.phusionpassenger.com/library/install/apache/install/oss/el6/#step-1:-upgrade-your-kernel,-or-disable-selinux).
 
-The current set of server configurations settings were taking directly from the [`Passenger Reference`](https://www.phusionpassenger.com/library/config/apache/reference/). Deprecation warning and removal failure messages can be enabled by setting the passenger_installed_version to
+The current set of server configurations settings were taking directly from the [Passenger Reference](https://www.phusionpassenger.com/library/config/apache/reference/). Deprecation warning and removal failure messages can be enabled by setting the `passenger_installed_version` to
 the version number installed on the server.
 
 **Parameters**:
@@ -2256,193 +2256,88 @@ the version number installed on the server.
 |mod_package|undef|n/a|||
 |mod_package_ensure|undef|n/a|||
 |mod_path|undef|n/a|||
-|passenger_allow_encoded_slashes|undef|[`PassengerAllowEncodedSlashes`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAllowEncodedSlashes)|server-config directory ||
-|passenger_app_env|undef|[`PassengerAppEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppEnv)|server-config directory ||
-|passenger_app_group_name|undef|[`PassengerAppGroupName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppGroupName)|server-config directory ||
-|passenger_app_root|undef|[`PassengerAppRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppRoot)|server-config directory ||
-|passenger_app_type|undef|[`PassengerAppType`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppType)|server-config directory ||
-|passenger_base_uri|undef|[`PassengerBaseURI`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBaseURI)|server-config directory ||
-|passenger_buffer_response|undef|[`PassengerBufferResponse`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferResponse)|server-config directory ||
-|passenger_buffer_upload|undef|[`PassengerBufferUpload`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferUpload)|server-config directory ||
-|passenger_concurrency_model|undef|[`PassengerConcurrencyModel`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerConcurrencyModel)|server-config directory ||
+|passenger_allow_encoded_slashes|undef|[`PassengerAllowEncodedSlashes`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAllowEncodedSlashes)|server-config virutal-host htaccess directory ||
+|passenger_app_env|undef|[`PassengerAppEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppEnv)|server-config virutal-host htaccess directory ||
+|passenger_app_group_name|undef|[`PassengerAppGroupName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppGroupName)|server-config virutal-host htaccess directory ||
+|passenger_app_root|undef|[`PassengerAppRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppRoot)|server-config virutal-host htaccess directory ||
+|passenger_app_type|undef|[`PassengerAppType`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppType)|server-config virutal-host htaccess directory ||
+|passenger_base_uri|undef|[`PassengerBaseURI`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBaseURI)|server-config virutal-host htaccess directory ||
+|passenger_buffer_response|undef|[`PassengerBufferResponse`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferResponse)|server-config virutal-host htaccess directory ||
+|passenger_buffer_upload|undef|[`PassengerBufferUpload`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferUpload)|server-config virutal-host htaccess directory ||
+|passenger_concurrency_model|undef|[`PassengerConcurrencyModel`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerConcurrencyModel)|server-config virutal-host htaccess directory ||
 |passenger_conf_file|$::apache::params::passenger_conf_file|n/a|||
 |passenger_conf_package_file|$::apache::params::passenger_conf_package_file|n/a|||
 |passenger_data_buffer_dir|undef|[`PassengerDataBufferDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDataBufferDir)|server-config ||
-|passenger_debug_log_file|undef|PassengerDebugLogFile||This option has been renamed in version 5.0.5 to PassengerLogFile.|
-|passenger_debugger|undef|[`PassengerDebugger`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDebugger)|server-config directory ||
+|passenger_debug_log_file|undef|PassengerDebugLogFile|server-config |This option has been renamed in version 5.0.5 to PassengerLogFile.|
+|passenger_debugger|undef|[`PassengerDebugger`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDebugger)|server-config virutal-host htaccess directory ||
 |passenger_default_group|undef|[`PassengerDefaultGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultGroup)|server-config ||
 |passenger_default_ruby|$::apache::params::passenger_default_ruby|[`PassengerDefaultRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultRuby)|server-config ||
 |passenger_default_user|undef|[`PassengerDefaultUser`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultUser)|server-config ||
 |passenger_disable_security_update_check|undef|[`PassengerDisableSecurityUpdateCheck`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDisableSecurityUpdateCheck)|server-config ||
-|passenger_enabled|undef|[`PassengerEnabled`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerEnabled)|server-config directory ||
-|passenger_error_override|undef|[`PassengerErrorOverride`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerErrorOverride)|server-config directory ||
+|passenger_enabled|undef|[`PassengerEnabled`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerEnabled)|server-config virutal-host htaccess directory ||
+|passenger_error_override|undef|[`PassengerErrorOverride`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerErrorOverride)|server-config virutal-host htaccess directory ||
 |passenger_file_descriptor_log_file|undef|[`PassengerFileDescriptorLogFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFileDescriptorLogFile)|server-config ||
 |passenger_fly_with|undef|[`PassengerFlyWith`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFlyWith)|server-config ||
-|passenger_force_max_concurrent_requests_per_process|undef|[`PassengerForceMaxConcurrentRequestsPerProcess`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerForceMaxConcurrentRequestsPerProcess)|server-config directory ||
-|passenger_friendly_error_pages|undef|[`PassengerFriendlyErrorPages`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFriendlyErrorPages)|server-config directory ||
-|passenger_group|undef|[`PassengerGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerGroup)|server-config directory ||
-|passenger_high_performance|undef|[`PassengerHighPerformance`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerHighPerformance)|server-config directory ||
-|passenger_installed_version|undef|n/a|||
+|passenger_force_max_concurrent_requests_per_process|undef|[`PassengerForceMaxConcurrentRequestsPerProcess`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerForceMaxConcurrentRequestsPerProcess)|server-config virutal-host htaccess directory ||
+|passenger_friendly_error_pages|undef|[`PassengerFriendlyErrorPages`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFriendlyErrorPages)|server-config virutal-host htaccess directory ||
+|passenger_group|undef|[`PassengerGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerGroup)|server-config virutal-host directory ||
+|passenger_high_performance|undef|[`PassengerHighPerformance`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerHighPerformance)|server-config virutal-host htaccess directory ||
+|passenger_installed_version|undef|n/a| |If set, will enable version checking of the passenger options against the value set.|
 |passenger_instance_registry_dir|undef|[`PassengerInstanceRegistryDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerInstanceRegistryDir)|server-config ||
-|passenger_load_shell_envvars|undef|[`PassengerLoadShellEnvvars`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLoadShellEnvvars)|server-config directory ||
+|passenger_load_shell_envvars|undef|[`PassengerLoadShellEnvvars`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLoadShellEnvvars)|server-config virutal-host htaccess directory ||
 |passenger_log_file|undef|[`PassengerLogFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLogFile)|server-config ||
 |passenger_log_level|undef|[`PassengerLogLevel`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLogLevel)|server-config ||
-|passenger_lve_min_uid|undef|[`PassengerLveMinUid`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLveMinUid)|server-config ||
-|passenger_max_instances|undef|[`PassengerMaxInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxInstances)|server-config directory ||
+|passenger_lve_min_uid|undef|[`PassengerLveMinUid`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLveMinUid)|server-config virutal-host ||
+|passenger_max_instances|undef|[`PassengerMaxInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxInstances)|server-config virutal-host htaccess directory ||
 |passenger_max_instances_per_app|undef|[`PassengerMaxInstancesPerApp`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxInstancesPerApp)|server-config ||
 |passenger_max_pool_size|undef|[`PassengerMaxPoolSize`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxPoolSize)|server-config ||
-|passenger_max_preloader_idle_time|undef|[`PassengerMaxPreloaderIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxPreloaderIdleTime)|server-config ||
-|passenger_max_request_queue_size|undef|[`PassengerMaxRequestQueueSize`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestQueueSize)|server-config directory ||
-|passenger_max_request_time|undef|[`PassengerMaxRequestTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestTime)|server-config directory ||
-|passenger_max_requests|undef|[`PassengerMaxRequests`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequests)|server-config directory ||
-|passenger_memory_limit|undef|[`PassengerMemoryLimit`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMemoryLimit)|server-config directory ||
-|passenger_meteor_app_settings|undef|[`PassengerMeteorAppSettings`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMeteorAppSettings)|server-config directory ||
-|passenger_min_instances|undef|[`PassengerMinInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMinInstances)|server-config directory ||
-|passenger_nodejs|undef|[`PassengerNodejs`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerNodejs)|server-config directory ||
+|passenger_max_preloader_idle_time|undef|[`PassengerMaxPreloaderIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxPreloaderIdleTime)|server-config virutal-host ||
+|passenger_max_request_queue_size|undef|[`PassengerMaxRequestQueueSize`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestQueueSize)|server-config virutal-host htaccess directory ||
+|passenger_max_request_time|undef|[`PassengerMaxRequestTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestTime)|server-config virutal-host htaccess directory ||
+|passenger_max_requests|undef|[`PassengerMaxRequests`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequests)|server-config virutal-host htaccess directory ||
+|passenger_memory_limit|undef|[`PassengerMemoryLimit`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMemoryLimit)|server-config virutal-host htaccess directory ||
+|passenger_meteor_app_settings|undef|[`PassengerMeteorAppSettings`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMeteorAppSettings)|server-config virutal-host htaccess directory ||
+|passenger_min_instances|undef|[`PassengerMinInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMinInstances)|server-config virutal-host htaccess directory ||
+|passenger_nodejs|undef|[`PassengerNodejs`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerNodejs)|server-config virutal-host htaccess directory ||
 |passenger_pool_idle_time|undef|[`PassengerPoolIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPoolIdleTime)|server-config ||
-|passenger_pre_start|undef|[`PassengerPreStart`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPreStart)|server-config ||
-|passenger_python|undef|[`PassengerPython`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPython)|server-config directory ||
-|passenger_resist_deployment_errors|undef|[`PassengerResistDeploymentErrors`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResistDeploymentErrors)|server-config directory ||
-|passenger_resolve_symlinks_in_document_root|undef|[`PassengerResolveSymlinksInDocumentRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResolveSymlinksInDocumentRoot)|server-config directory ||
+|passenger_pre_start|undef|[`PassengerPreStart`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPreStart)|server-config virutal-host ||
+|passenger_python|undef|[`PassengerPython`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPython)|server-config virutal-host htaccess directory ||
+|passenger_resist_deployment_errors|undef|[`PassengerResistDeploymentErrors`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResistDeploymentErrors)|server-config virutal-host htaccess directory ||
+|passenger_resolve_symlinks_in_document_root|undef|[`PassengerResolveSymlinksInDocumentRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResolveSymlinksInDocumentRoot)|server-config virutal-host htaccess directory ||
 |passenger_response_buffer_high_watermark|undef|[`PassengerResponseBufferHighWatermark`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResponseBufferHighWatermark)|server-config ||
-|passenger_restart_dir|undef|[`PassengerRestartDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRestartDir)|server-config directory ||
-|passenger_rolling_restarts|undef|[`PassengerRollingRestarts`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRollingRestarts)|server-config directory ||
+|passenger_restart_dir|undef|[`PassengerRestartDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRestartDir)|server-config virutal-host htaccess directory ||
+|passenger_rolling_restarts|undef|[`PassengerRollingRestarts`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRollingRestarts)|server-config virutal-host htaccess directory ||
 |passenger_root|$::apache::params::passenger_root|[`PassengerRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRoot)|server-config ||
-|passenger_ruby|$::apache::params::passenger_ruby|[`PassengerRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRuby)|server-config directory ||
+|passenger_ruby|$::apache::params::passenger_ruby|[`PassengerRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRuby)|server-config virutal-host htaccess directory ||
 |passenger_security_update_check_proxy|undef|[`PassengerSecurityUpdateCheckProxy`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSecurityUpdateCheckProxy)|server-config ||
 |passenger_show_version_in_header|undef|[`PassengerShowVersionInHeader`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerShowVersionInHeader)|server-config ||
 |passenger_socket_backlog|undef|[`PassengerSocketBacklog`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSocketBacklog)|server-config ||
-|passenger_spawn_method|undef|[`PassengerSpawnMethod`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSpawnMethod)|server-config ||
-|passenger_start_timeout|undef|[`PassengerStartTimeout`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartTimeout)|server-config directory ||
-|passenger_startup_file|undef|[`PassengerStartupFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartupFile)|server-config directory ||
+|passenger_spawn_method|undef|[`PassengerSpawnMethod`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSpawnMethod)|server-config virutal-host ||
+|passenger_start_timeout|undef|[`PassengerStartTimeout`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartTimeout)|server-config virutal-host htaccess directory ||
+|passenger_startup_file|undef|[`PassengerStartupFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartupFile)|server-config virutal-host htaccess directory ||
 |passenger_stat_throttle_rate|undef|[`PassengerStatThrottleRate`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStatThrottleRate)|server-config ||
-|passenger_sticky_sessions|undef|[`PassengerStickySessions`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessions)|server-config directory ||
-|passenger_sticky_sessions_cookie_name|undef|[`PassengerStickySessionsCookieName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessionsCookieName)|server-config directory ||
-|passenger_thread_count|undef|[`PassengerThreadCount`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerThreadCount)|server-config directory ||
-|passenger_use_global_queue|undef|PassengerUseGlobalQueue|||
-|passenger_user|undef|[`PassengerUser`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerUser)|server-config directory ||
+|passenger_sticky_sessions|undef|[`PassengerStickySessions`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessions)|server-config virutal-host htaccess directory ||
+|passenger_sticky_sessions_cookie_name|undef|[`PassengerStickySessionsCookieName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessionsCookieName)|server-config virutal-host htaccess directory ||
+|passenger_thread_count|undef|[`PassengerThreadCount`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerThreadCount)|server-config virutal-host htaccess directory ||
+|passenger_use_global_queue|undef|PassengerUseGlobalQueue|server-config ||
+|passenger_user|undef|[`PassengerUser`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerUser)|server-config virutal-host directory ||
 |passenger_user_switching|undef|[`PassengerUserSwitching`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerUserSwitching)|server-config ||
-|rack_auto_detect|undef|RackAutoDetect||These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
+|rack_auto_detect|undef|RackAutoDetect|server-config |These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
 |rack_autodetect|undef|n/a|||
-|rack_base_uri|undef|RackBaseURI||Deprecated in 3.0.0 in favor of PassengerBaseURI.|
-|rack_env|undef|[`RackEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RackEnv)|server-config directory ||
-|rails_allow_mod_rewrite|undef|RailsAllowModRewrite||This option doesn't do anything anymore in since version 4.0.0.|
-|rails_app_spawner_idle_time|undef|RailsAppSpawnerIdleTime||This option has been removed in version 4.0.0, and replaced with PassengerMaxPreloaderIdleTime.|
-|rails_auto_detect|undef|RailsAutoDetect||These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
+|rack_base_uri|undef|RackBaseURI|server-config |Deprecated in 3.0.0 in favor of PassengerBaseURI.|
+|rack_env|undef|[`RackEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RackEnv)|server-config virutal-host htaccess directory ||
+|rails_allow_mod_rewrite|undef|RailsAllowModRewrite|server-config |This option doesn't do anything anymore in since version 4.0.0.|
+|rails_app_spawner_idle_time|undef|RailsAppSpawnerIdleTime|server-config |This option has been removed in version 4.0.0, and replaced with PassengerMaxPreloaderIdleTime.|
+|rails_auto_detect|undef|RailsAutoDetect|server-config |These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
 |rails_autodetect|undef|n/a|||
-|rails_base_uri|undef|RailsBaseURI||Deprecated in 3.0.0 in favor of PassengerBaseURI.|
-|rails_default_user|undef|RailsDefaultUser||Deprecated in 3.0.0 in favor of PassengerDefaultUser.|
-|rails_env|undef|[`RailsEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RailsEnv)|server-config directory ||
-|rails_framework_spawner_idle_time|undef|RailsFrameworkSpawnerIdleTime||This option is no longer available in version 4.0.0. There is no alternative because framework spawning has been removed altogether. You should use smart spawning instead.|
-|rails_ruby|undef|RailsRuby||Deprecated in 3.0.0 in favor of PassengerRuby.|
-|rails_spawn_method|undef|RailsSpawnMethod||Deprecated in 3.0.0 in favor of PassengerSpawnMethod.|
-|rails_user_switching|undef|RailsUserSwitching||Deprecated in 3.0.0 in favor of PassengerUserSwitching.|
-|union_station_filter|undef|[`UnionStationFilter`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationFilter)|server-config directory ||
-|union_station_gateway_address|undef|[`UnionStationGatewayAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayAddress)|server-config ||
-|union_station_gateway_cert|undef|[`UnionStationGatewayCert`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayCert)|server-config ||
-|union_station_gateway_port|undef|[`UnionStationGatewayPort`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayPort)|server-config ||
-|union_station_key|undef|[`UnionStationKey`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationKey)|server-config directory ||
-|union_station_proxy_address|undef|[`UnionStationProxyAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationProxyAddress)|server-config ||
-|union_station_support|undef|[`UnionStationSupport`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationSupport)|server-config directory ||
-|wsgi_auto_detect|undef|WsgiAutoDetect||These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
-|parameter|default value|passenger config setting|notes|
-|---------|-------------|------------------------|-----|
-|manage_repo|true|n/a||
-|mod_id|undef|n/a||
-|mod_lib|undef|n/a||
-|mod_lib_path|undef|n/a||
-|mod_package|undef|n/a||
-|mod_package_ensure|undef|n/a||
-|mod_path|undef|n/a||
-|passenger_allow_encoded_slashes|undef|[`PassengerAllowEncodedSlashes`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAllowEncodedSlashes)||
-|passenger_app_env|undef|[`PassengerAppEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppEnv)||
-|passenger_app_group_name|undef|[`PassengerAppGroupName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppGroupName)||
-|passenger_app_root|undef|[`PassengerAppRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppRoot)||
-|passenger_app_type|undef|[`PassengerAppType`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerAppType)||
-|passenger_base_uri|undef|[`PassengerBaseURI`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBaseURI)||
-|passenger_buffer_response|undef|[`PassengerBufferResponse`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferResponse)||
-|passenger_buffer_upload|undef|[`PassengerBufferUpload`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerBufferUpload)||
-|passenger_concurrency_model|undef|[`PassengerConcurrencyModel`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerConcurrencyModel)||
-|passenger_conf_file|$::apache::params::passenger_conf_file|n/a||
-|passenger_conf_package_file|$::apache::params::passenger_conf_package_file|n/a||
-|passenger_data_buffer_dir|undef|[`PassengerDataBufferDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDataBufferDir)||
-|passenger_debug_log_file|undef|PassengerDebugLogFile|This option has been renamed in version 5.0.5 to PassengerLogFile.|
-|passenger_debugger|undef|[`PassengerDebugger`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDebugger)||
-|passenger_default_group|undef|[`PassengerDefaultGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultGroup)||
-|passenger_default_ruby|$::apache::params::passenger_default_ruby|[`PassengerDefaultRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultRuby)||
-|passenger_default_user|undef|[`PassengerDefaultUser`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDefaultUser)||
-|passenger_disable_security_update_check|undef|[`PassengerDisableSecurityUpdateCheck`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerDisableSecurityUpdateCheck)||
-|passenger_enabled|undef|[`PassengerEnabled`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerEnabled)||
-|passenger_error_override|undef|[`PassengerErrorOverride`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerErrorOverride)||
-|passenger_file_descriptor_log_file|undef|[`PassengerFileDescriptorLogFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFileDescriptorLogFile)||
-|passenger_fly_with|undef|[`PassengerFlyWith`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFlyWith)||
-|passenger_force_max_concurrent_requests_per_process|undef|[`PassengerForceMaxConcurrentRequestsPerProcess`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerForceMaxConcurrentRequestsPerProcess)||
-|passenger_friendly_error_pages|undef|[`PassengerFriendlyErrorPages`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerFriendlyErrorPages)||
-|passenger_group|undef|[`PassengerGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerGroup)||
-|passenger_high_performance|undef|[`PassengerHighPerformance`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerHighPerformance)||
-|passenger_installed_version|undef|n/a|When set, puppet will issue warnings and failures for deprecated and removed passenger configuration options|
-|passenger_instance_registry_dir|undef|[`PassengerInstanceRegistryDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerInstanceRegistryDir)||
-|passenger_load_shell_envvars|undef|[`PassengerLoadShellEnvvars`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLoadShellEnvvars)||
-|passenger_log_file|undef|[`PassengerLogFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLogFile)||
-|passenger_log_level|undef|[`PassengerLogLevel`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLogLevel)||
-|passenger_lve_min_uid|undef|[`PassengerLveMinUid`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerLveMinUid)||
-|passenger_max_instances|undef|[`PassengerMaxInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxInstances)||
-|passenger_max_instances_per_app|undef|[`PassengerMaxInstancesPerApp`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxInstancesPerApp)||
-|passenger_max_pool_size|undef|[`PassengerMaxPoolSize`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxPoolSize)||
-|passenger_max_preloader_idle_time|undef|[`PassengerMaxPreloaderIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxPreloaderIdleTime)||
-|passenger_max_request_queue_size|undef|[`PassengerMaxRequestQueueSize`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestQueueSize)||
-|passenger_max_request_time|undef|[`PassengerMaxRequestTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequestTime)||
-|passenger_max_requests|undef|[`PassengerMaxRequests`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMaxRequests)||
-|passenger_memory_limit|undef|[`PassengerMemoryLimit`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMemoryLimit)||
-|passenger_meteor_app_settings|undef|[`PassengerMeteorAppSettings`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMeteorAppSettings)||
-|passenger_min_instances|undef|[`PassengerMinInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerMinInstances)||
-|passenger_nodejs|undef|[`PassengerNodejs`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerNodejs)||
-|passenger_pool_idle_time|undef|[`PassengerPoolIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPoolIdleTime)||
-|passenger_pre_start|undef|[`PassengerPreStart`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPreStart)||
-|passenger_python|undef|[`PassengerPython`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerPython)||
-|passenger_resist_deployment_errors|undef|[`PassengerResistDeploymentErrors`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResistDeploymentErrors)||
-|passenger_resolve_symlinks_in_document_root|undef|[`PassengerResolveSymlinksInDocumentRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResolveSymlinksInDocumentRoot)||
-|passenger_response_buffer_high_watermark|undef|[`PassengerResponseBufferHighWatermark`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerResponseBufferHighWatermark)||
-|passenger_restart_dir|undef|[`PassengerRestartDir`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRestartDir)||
-|passenger_rolling_restarts|undef|[`PassengerRollingRestarts`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRollingRestarts)||
-|passenger_root|$::apache::params::passenger_root|[`PassengerRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRoot)||
-|passenger_ruby|$::apache::params::passenger_ruby|[`PassengerRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerRuby)||
-|passenger_security_update_check_proxy|undef|[`PassengerSecurityUpdateCheckProxy`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSecurityUpdateCheckProxy)||
-|passenger_show_version_in_header|undef|[`PassengerShowVersionInHeader`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerShowVersionInHeader)||
-|passenger_socket_backlog|undef|[`PassengerSocketBacklog`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSocketBacklog)||
-|passenger_spawn_method|undef|[`PassengerSpawnMethod`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerSpawnMethod)||
-|passenger_start_timeout|undef|[`PassengerStartTimeout`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartTimeout)||
-|passenger_startup_file|undef|[`PassengerStartupFile`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStartupFile)||
-|passenger_stat_throttle_rate|undef|[`PassengerStatThrottleRate`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStatThrottleRate)||
-|passenger_sticky_sessions|undef|[`PassengerStickySessions`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessions)||
-|passenger_sticky_sessions_cookie_name|undef|[`PassengerStickySessionsCookieName`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerStickySessionsCookieName)||
-|passenger_thread_count|undef|[`PassengerThreadCount`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerThreadCount)||
-|passenger_use_global_queue|undef|PassengerUseGlobalQueue||
-|passenger_user|undef|[`PassengerUser`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerUser)||
-|passenger_user_switching|undef|[`PassengerUserSwitching`](https://www.phusionpassenger.com/library/config/apache/reference/#PassengerUserSwitching)||
-|rack_auto_detect|undef|RackAutoDetect|These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
-|rack_autodetect|undef|n/a|see rack_auto_detect|
-|rack_base_uri|undef|RackBaseURI|Deprecated in 3.0.0 in favor of PassengerBaseURI.|
-|rack_env|undef|[`RackEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RackEnv)||
-|rails_allow_mod_rewrite|undef|RailsAllowModRewrite|This option doesn't do anything anymore in since version 4.0.0.|
-|rails_app_spawner_idle_time|undef|RailsAppSpawnerIdleTime|This option has been removed in version 4.0.0, and replaced with PassengerMaxPreloaderIdleTime.|
-|rails_auto_detect|undef|RailsAutoDetect|These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
-|rails_autodetect|undef|n/a|see rails_auto_detect|
-|rails_base_uri|undef|RailsBaseURI|Deprecated in 3.0.0 in favor of PassengerBaseURI.|
-|rails_default_user|undef|RailsDefaultUser|Deprecated in 3.0.0 in favor of PassengerDefaultUser.|
-|rails_env|undef|[`RailsEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RailsEnv)||
-|rails_framework_spawner_idle_time|undef|RailsFrameworkSpawnerIdleTime|This option is no longer available in version 4.0.0. There is no alternative because framework spawning has been removed altogether. You should use smart spawning instead.|
-|rails_ruby|undef|RailsRuby|Deprecated in 3.0.0 in favor of PassengerRuby.|
-|rails_spawn_method|undef|RailsSpawnMethod|Deprecated in 3.0.0 in favor of PassengerSpawnMethod.|
-|rails_user_switching|undef|RailsUserSwitching|Deprecated in 3.0.0 in favor of PassengerUserSwitching.|
-|union_station_filter|undef|[`UnionStationFilter`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationFilter)||
-|union_station_gateway_address|undef|[`UnionStationGatewayAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayAddress)||
-|union_station_gateway_cert|undef|[`UnionStationGatewayCert`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayCert)||
-|union_station_gateway_port|undef|[`UnionStationGatewayPort`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationGatewayPort)||
-|union_station_key|undef|[`UnionStationKey`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationKey)||
-|union_station_proxy_address|undef|[`UnionStationProxyAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationProxyAddress)||
-|union_station_support|undef|[`UnionStationSupport`](https://www.phusionpassenger.com/library/config/apache/reference/#UnionStationSupport)||
-|wsgi_auto_detect|undef|WsgiAutoDetect|These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
+|rails_base_uri|undef|RailsBaseURI|server-config |Deprecated in 3.0.0 in favor of PassengerBaseURI.|
+|rails_default_user|undef|RailsDefaultUser|server-config |Deprecated in 3.0.0 in favor of PassengerDefaultUser.|
+|rails_env|undef|[`RailsEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#RailsEnv)|server-config virutal-host htaccess directory ||
+|rails_framework_spawner_idle_time|undef|RailsFrameworkSpawnerIdleTime|server-config |This option is no longer available in version 4.0.0. There is no alternative because framework spawning has been removed altogether. You should use smart spawning instead.|
+|rails_ruby|undef|RailsRuby|server-config |Deprecated in 3.0.0 in favor of PassengerRuby.|
+|rails_spawn_method|undef|RailsSpawnMethod|server-config |Deprecated in 3.0.0 in favor of PassengerSpawnMethod.|
+|rails_user_switching|undef|RailsUserSwitching|server-config |Deprecated in 3.0.0 in favor of PassengerUserSwitching.|
+|wsgi_auto_detect|undef|WsgiAutoDetect|server-config |These options have been removed in version 4.0.0 as part of an optimization. You should use PassengerEnabled instead.|
 
 
 ##### Class: `apache::mod::ldap`
@@ -3888,92 +3783,414 @@ Sets the overrides for the specified virtual host. Accepts an array of [AllowOve
 
 Default: '[none]'.
 
-##### `passenger_app_root`
+##### `passenger_allow_encoded_slashes`
 
-Sets [PassengerRoot](https://www.phusionpassenger.com/library/config/apache/reference/#passengerapproot), the location of the Passenger application root if different from the DocumentRoot.
+Sets [`PassengerAllowEncodedSlashes`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerallowencodedslashes)
 
-Values: A string specifying a path.
+Values: String specifying - on|off
 
-Default: `undef`.
+Default: `undef`
 
 ##### `passenger_app_env`
 
-Sets [PassengerAppEnv](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappenv), the environment for the Passenger application. If not specified, defaults to the global setting or 'production'.
+Sets [`PassengerAppEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappenv)
 
-Values: A string specifying the name of the environment.
+Values: String specifying - name
 
-Default: `undef`.
+Default: `undef`
 
-##### `passenger_log_file`
+##### `passenger_app_group_name`
 
-By default, Passenger log messages are written to the Apache global error log. With [PassengerLogFile](https://www.phusionpassenger.com/library/config/apache/reference/#passengerlogfile), you can configure those messages to be logged to a different file. This option is only available since Passenger 5.0.5.
+Sets [`PassengerAppGroupName`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappgroupname)
 
-Values: A string specifying a path.
+Values: String specifying - name
 
-Default: `undef`.
+Default: `undef`
 
-##### `passenger_log_level`
+##### `passenger_app_root`
 
-This option allows to specify how much information should be written to the log file. If not set, [PassengerLogLevel](https://www.phusionpassenger.com/library/config/apache/reference/#passengerloglevel) will not show up in the configuration file and the defaults are used.
+Sets [`PassengerAppRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerapproot)
 
-Default: Passenger versions less than 3.0.0: '0'; 5.0.0 and later: '3'.
+Values: String specifying - path
 
-##### `passenger_ruby`
+Default: `undef`
 
-Sets [PassengerRuby](https://www.phusionpassenger.com/library/config/apache/reference/#passengerruby), the Ruby interpreter to use for the application, on this virtual host.
+##### `passenger_app_type`
 
-Default: `undef`.
+Sets [`PassengerAppType`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerapptype)
 
-##### `passenger_min_instances`
+Values: String specifying - name
 
-Sets [PassengerMinInstances](https://www.phusionpassenger.com/library/config/apache/reference/#passengermininstances), the minimum number of application processes to run.
+Default: `undef`
 
-##### `passenger_max_requests`
+##### `passenger_base_uris`
 
-Sets [PassengerMaxRequests](https://www.phusionpassenger.com/library/config/apache/reference/#pas
-sengermaxrequests), the maximum number of requests an application process will process.
+Sets [`PassengerBaseURI`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbaseuri)
 
-##### `passenger_max_instances_per_app`
+Values: Array of strings
 
-Sets [PassengerMaxInstancesPerApp](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxinstancesperapp), the maximum number of application processes that may simultaneously exist for a single application.
+Default: `undef`
 
-Default: `undef`.
+##### `passenger_buffer_response`
 
-##### `passenger_start_timeout`
+Sets [`PassengerBufferResponse`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbufferresponse)
 
-Sets [PassengerStartTimeout](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstarttimeout), the timeout for the application startup.
+Values: String specifying - on|off
 
-##### `passenger_pre_start`
+Default: `undef`
 
-Sets [PassengerPreStart](https://www.phusionpassenger.com/library/config/apache/reference/#passengerprestart), the URL of the application if pre-starting is required.
+##### `passenger_buffer_upload`
 
-##### `passenger_user`
+Sets [`PassengerBufferUpload`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbufferupload)
 
-Sets [PassengerUser](https://www.phusionpassenger.com/library/config/apache/reference/#passengeruser), the running user for sandboxing applications.
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_concurrency_model`
+
+Sets [`PassengerConcurrencyModel`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerconcurrencymodel)
+
+Values: String specifying - process|thread
+
+Default: `undef`
+
+##### `passenger_debugger`
+
+Sets [`PassengerDebugger`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerdebugger)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_enabled`
+
+Sets [`PassengerEnabled`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerenabled)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_error_override`
+
+Sets [`PassengerErrorOverride`](https://www.phusionpassenger.com/library/config/apache/reference/#passengererroroverride)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_force_max_concurrent_requests_per_process`
+
+Sets [`PassengerForceMaxConcurrentRequestsPerProcess`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerforcemaxconcurrentrequestsperprocess)
+
+Values: String specifying - number
+
+Default: `undef`
+
+##### `passenger_friendly_error_pages`
+
+Sets [`PassengerFriendlyErrorPages`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerfriendlyerrorpages)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_group`
+
+Sets [`PassengerGroup`](https://www.phusionpassenger.com/library/config/apache/reference/#passengergroup)
+
+Values: String specifying - groupname
+
+Default: `undef`
 
 ##### `passenger_high_performance`
 
-Sets the [`PassengerHighPerformance`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerhighperformance) parameter.
+Sets [`PassengerHighPerformance`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerhighperformance)
 
-Values: `true`, `false`.
+Values: Boolean
 
-Default: `undef`.
+Default: `undef`
+
+##### `passenger_load_shell_envvars`
+
+Sets [`PassengerLoadShellEnvvars`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerloadshellenvvars)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_lve_min_uid`
+
+Sets [`PassengerLveMinUid`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerlveminuid)
+
+Values: String specifying - number
+
+Default: `undef`
+
+##### `passenger_max_instances`
+
+Sets [`PassengerMaxInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxinstances)
+
+Values: String specifying - integer
+
+Default: `undef`
+
+##### `passenger_max_preloader_idle_time`
+
+Sets [`PassengerMaxPreloaderIdleTime`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxpreloaderidletime)
+
+Values: String specifying - seconds
+
+Default: `undef`
+
+##### `passenger_max_request_queue_size`
+
+Sets [`PassengerMaxRequestQueueSize`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequestqueuesize)
+
+Values: String specifying - integer
+
+Default: `undef`
+
+##### `passenger_max_request_time`
+
+Sets [`PassengerMaxRequestTime`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequesttime)
+
+Values: String specifying - seconds
+
+Default: `undef`
+
+##### `passenger_max_requests`
+
+Sets [`PassengerMaxRequests`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequests)
+
+Values: String specifying - integer
+
+Default: `undef`
+
+##### `passenger_memory_limit`
+
+Sets [`PassengerMemoryLimit`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermemorylimit)
+
+Values: String specifying - megabytes
+
+Default: `undef`
+
+##### `passenger_meteor_app_settings`
+
+Sets [`PassengerMeteorAppSettings`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermeteorappsettings)
+
+Values: String specifying - path-to-json-settings-file
+
+Default: `undef`
+
+##### `passenger_min_instances`
+
+Sets [`PassengerMinInstances`](https://www.phusionpassenger.com/library/config/apache/reference/#passengermininstances)
+
+Values: String specifying - integer
+
+Default: `undef`
 
 ##### `passenger_nodejs`
 
-Sets the [`PassengerNodejs`](https://www.phusionpassenger.com/library/config/apache/reference/#passengernodejs), the NodeJS interpreter to use for the application, on this virtual host.
+Sets [`PassengerNodejs`](https://www.phusionpassenger.com/library/config/apache/reference/#passengernodejs)
 
-##### `passenger_sticky_sessions`
+Values: String specifying - path-to-node-js
 
-Sets the [`PassengerStickySessions`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstickysessions) parameter.
+Default: `undef`
 
-Boolean.
+##### `passenger_pre_start`
 
-Default: `undef`.
+Sets [`PassengerPreStart`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerprestart)
+
+Values: String specifying - url
+
+Default: `undef`
+
+##### `passenger_python`
+
+Sets [`PassengerPython`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerpython)
+
+Values: String specifying - path-to-python-interpreter
+
+Default: `undef`
+
+##### `passenger_resist_deployment_errors`
+
+Sets [`PassengerResistDeploymentErrors`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerresistdeploymenterrors)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_resolve_symlinks_in_document_root`
+
+Sets [`PassengerResolveSymlinksInDocumentRoot`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerresolvesymlinksindocumentroot)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_restart_dir`
+
+Sets [`PassengerRestartDir`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerrestartdir)
+
+Values: String specifying - absolute-or-relative-path
+
+Default: `undef`
+
+##### `passenger_rolling_restarts`
+
+Sets [`PassengerRollingRestarts`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerrollingrestarts)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `passenger_ruby`
+
+Sets [`PassengerRuby`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerruby)
+
+Values: String specifying - path-to-ruby-interpreter
+
+Default: `undef`
+
+##### `passenger_spawn_method`
+
+Sets [`PassengerSpawnMethod`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerspawnmethod)
+
+Values: String specifying - smart|direct
+
+Default: `undef`
+
+##### `passenger_start_timeout`
+
+Sets [`PassengerStartTimeout`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstarttimeout)
+
+Values: String specifying - seconds
+
+Default: `undef`
 
 ##### `passenger_startup_file`
 
-Sets the [`PassengerStartupFile`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstartupfile) path. This path is relative to the application root.
+Sets [`PassengerStartupFile`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstartupfile)
+
+Values: String specifying - relative-path
+
+Default: `undef`
+
+##### `passenger_sticky_sessions`
+
+Sets [`PassengerStickySessions`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstickysessions)
+
+Values: Boolean
+
+Default: `undef`
+
+##### `passenger_sticky_sessions_cookie_name`
+
+Sets [`PassengerStickySessionsCookieName`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstickysessionscookiename)
+
+Values: String specifying - name
+
+Default: `undef`
+
+##### `passenger_thread_count`
+
+Sets [`PassengerThreadCount`](https://www.phusionpassenger.com/library/config/apache/reference/#passengerthreadcount)
+
+Values: String specifying - integer
+
+Default: `undef`
+
+##### `passenger_user`
+
+Sets [`PassengerUser`](https://www.phusionpassenger.com/library/config/apache/reference/#passengeruser)
+
+Values: String specifying - username
+
+Default: `undef`
+
+##### `rack_env`
+
+Sets [`RackEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#rackenv)
+
+Values: String specifying - RailsEnv name
+       name
+
+Default: `undef`
+
+##### `rails_env`
+
+Sets [`RailsEnv`](https://www.phusionpassenger.com/library/config/apache/reference/#railsenv)
+
+Values: String specifying - name
+      RackEnv name
+
+Default: `undef`
+
+##### `union_station_filter`
+
+Sets [`UnionStationFilter`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationfilter)
+
+Values: String specifying - "string"
+
+Default: `undef`
+
+##### `union_station_gateway_address`
+
+Sets [`UnionStationGatewayAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewayaddress)
+
+Values: String specifying - gateway_hostname
+
+Default: `undef`
+
+##### `union_station_gateway_cert`
+
+Sets [`UnionStationGatewayCert`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewaycert)
+
+Values: String specifying - gateway_pinned_certificate_file
+
+Default: `undef`
+
+##### `union_station_gateway_port`
+
+Sets [`UnionStationGatewayPort`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationgatewayport)
+
+Values: String specifying - gateway_port
+
+Default: `undef`
+
+##### `union_station_key`
+
+Sets [`UnionStationKey`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationkey)
+
+Values: String specifying - your_application_key
+
+Default: `undef`
+
+##### `union_station_proxy_address`
+
+Sets [`UnionStationProxyAddress`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationproxyaddress)
+
+Values: String specifying - scheme://user:password@proxy_host:proxy_port
+
+Default: `undef`
+
+##### `union_station_support`
+
+Sets [`UnionStationSupport`](https://www.phusionpassenger.com/library/config/apache/reference/#unionstationsupport)
+
+Values: String specifying - on|off
+
+Default: `undef`
+
+##### `rack_base_uris`
+
+Specifies the resource identifiers for a rack configuration. The file paths specified are listed as rack application roots for [Phusion Passenger](http://www.modrails.com/documentation/Users%20guide%20Apache.html#_railsbaseuri_and_rackbaseuri) in the _rack.erb template.
+
+Default: `undef`.
+
 
 ##### `php_flags & values`
 
@@ -4055,17 +4272,6 @@ Allows you to pass a ProxyPassReverse if [`proxy_dest_match`][] is specified. Se
 
 This directive is equivalent to [`proxy_pass`][], but takes regular expressions, see [ProxyPassMatch](https://httpd.apache.org/docs/current/mod/mod_proxy.html#proxypassmatch) for details.
 
-##### `rack_base_uris`
-
-Specifies the resource identifiers for a rack configuration. The file paths specified are listed as rack application roots for [Phusion Passenger](http://www.modrails.com/documentation/Users%20guide%20Apache.html#_railsbaseuri_and_rackbaseuri) in the _rack.erb template.
-
-Default: `undef`.
-
-#####`passenger_base_uris`
-
-Used to specify that the given URI is a Phusion Passenger-served application. The file paths specified are listed as passenger application roots for [Phusion Passenger](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#PassengerBaseURI) in the _passenger_base_uris.erb template.
-
-Default: `undef`.
 
 ##### `redirect_dest`
 
