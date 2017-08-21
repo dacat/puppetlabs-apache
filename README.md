@@ -4994,6 +4994,45 @@ apache::vhost { 'sample.example.net':
   ],
 }
 ```
+##### `passenger_allow_encoded_slashes`
+
+Sets [PassengerAllowEncodedSlashes](https://www.phusionpassenger.com/library/config/apache/reference/#passengerallowencodedslashes) The value is a string specifying - on|off
+
+##### `passenger_app_env`
+
+Sets [PassengerAppEnv](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappenv) The value is a string specifying - name
+
+##### `passenger_app_group_name`
+
+Sets [PassengerAppGroupName](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappgroupname) The value is a string specifying - name
+
+##### `passenger_app_root`
+
+Sets [PassengerAppRoot](https://www.phusionpassenger.com/library/config/apache/reference/#passengerapproot) The value is a string specifying - path
+
+##### `passenger_app_type`
+
+Sets [PassengerAppType](https://www.phusionpassenger.com/library/config/apache/reference/#passengerapptype) The value is a string specifying - name
+
+##### `passenger_base_uri`
+
+Sets [PassengerBaseURI](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbaseuri) The value is a string specifying - uri
+
+##### `passenger_buffer_response`
+
+Sets [PassengerBufferResponse](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbufferresponse) The value is a string specifying - on|off
+
+##### `passenger_buffer_upload`
+
+Sets [PassengerBufferUpload](https://www.phusionpassenger.com/library/config/apache/reference/#passengerbufferupload) The value is a string specifying - on|off
+
+##### `passenger_concurrency_model`
+
+Sets [PassengerConcurrencyModel](https://www.phusionpassenger.com/library/config/apache/reference/#passengerconcurrencymodel) The value is a string specifying - process|thread
+
+##### `passenger_debugger`
+
+Sets [PassengerDebugger](https://www.phusionpassenger.com/library/config/apache/reference/#passengerdebugger) The value is a string specifying - on|off
 
 ##### `passenger_enabled`
 
@@ -5011,6 +5050,118 @@ apache::vhost { 'sample.example.net':
 ```
 
 > **Note:** There is an [issue](http://www.conandalton.net/2010/06/passengerenabled-off-not-working.html) using the PassengerEnabled directive with the PassengerHighPerformance directive.
+
+##### `passenger_error_override`
+
+Sets [PassengerErrorOverride](https://www.phusionpassenger.com/library/config/apache/reference/#passengererroroverride) The value is a string specifying - on|off
+
+##### `passenger_force_max_concurrent_requests_per_process`
+
+Sets [PassengerForceMaxConcurrentRequestsPerProcess](https://www.phusionpassenger.com/library/config/apache/reference/#passengerforcemaxconcurrentrequestsperprocess) The value is a string specifying - number
+
+##### `passenger_friendly_error_pages`
+
+Sets [PassengerFriendlyErrorPages](https://www.phusionpassenger.com/library/config/apache/reference/#passengerfriendlyerrorpages) The value is a string specifying - on|off
+
+##### `passenger_group`
+
+Sets [PassengerGroup](https://www.phusionpassenger.com/library/config/apache/reference/#passengergroup) The value is a string specifying - groupname
+
+##### `passenger_high_performance`
+
+Sets [PassengerHighPerformance](https://www.phusionpassenger.com/library/config/apache/reference/#passengerhighperformance) The value is a string specifying - on|off
+
+##### `passenger_load_shell_envvars`
+
+Sets [PassengerLoadShellEnvvars](https://www.phusionpassenger.com/library/config/apache/reference/#passengerloadshellenvvars) The value is a string specifying - on|off
+
+##### `passenger_max_instances`
+
+Sets [PassengerMaxInstances](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxinstances) The value is a string specifying - integer
+
+##### `passenger_max_request_queue_size`
+
+Sets [PassengerMaxRequestQueueSize](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequestqueuesize) The value is a string specifying - integer
+
+##### `passenger_max_request_time`
+
+Sets [PassengerMaxRequestTime](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequesttime) The value is a string specifying - seconds
+
+##### `passenger_max_requests`
+
+Sets [PassengerMaxRequests](https://www.phusionpassenger.com/library/config/apache/reference/#passengermaxrequests) The value is a string specifying - integer
+
+##### `passenger_memory_limit`
+
+Sets [PassengerMemoryLimit](https://www.phusionpassenger.com/library/config/apache/reference/#passengermemorylimit) The value is a string specifying - megabytes
+
+##### `passenger_meteor_app_settings`
+
+Sets [PassengerMeteorAppSettings](https://www.phusionpassenger.com/library/config/apache/reference/#passengermeteorappsettings) The value is a string specifying - path-to-json-settings-file
+
+##### `passenger_min_instances`
+
+Sets [PassengerMinInstances](https://www.phusionpassenger.com/library/config/apache/reference/#passengermininstances) The value is a string specifying - integer
+
+##### `passenger_nodejs`
+
+Sets [PassengerNodejs](https://www.phusionpassenger.com/library/config/apache/reference/#passengernodejs) The value is a string specifying - path-to-node-js
+
+##### `passenger_python`
+
+Sets [PassengerPython](https://www.phusionpassenger.com/library/config/apache/reference/#passengerpython) The value is a string specifying - path-to-python-interpreter
+
+##### `passenger_resist_deployment_errors`
+
+Sets [PassengerResistDeploymentErrors](https://www.phusionpassenger.com/library/config/apache/reference/#passengerresistdeploymenterrors) The value is a string specifying - on|off
+
+##### `passenger_resolve_symlinks_in_document_root`
+
+Sets [PassengerResolveSymlinksInDocumentRoot](https://www.phusionpassenger.com/library/config/apache/reference/#passengerresolvesymlinksindocumentroot) The value is a string specifying - on|off
+
+##### `passenger_restart_dir`
+
+Sets [PassengerRestartDir](https://www.phusionpassenger.com/library/config/apache/reference/#passengerrestartdir) The value is a string specifying - absolute-or-relative-path
+
+##### `passenger_rolling_restarts`
+
+Sets [PassengerRollingRestarts](https://www.phusionpassenger.com/library/config/apache/reference/#passengerrollingrestarts) The value is a string specifying - on|off
+
+##### `passenger_ruby`
+
+Sets [PassengerRuby](https://www.phusionpassenger.com/library/config/apache/reference/#passengerruby) The value is a string specifying - path-to-ruby-interpreter
+
+##### `passenger_start_timeout`
+
+Sets [PassengerStartTimeout](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstarttimeout) The value is a string specifying - seconds
+
+##### `passenger_startup_file`
+
+Sets [PassengerStartupFile](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstartupfile) The value is a string specifying - relative-path
+
+##### `passenger_sticky_sessions`
+
+Sets [PassengerStickySessions](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstickysessions) The value is a string specifying - on|off
+
+##### `passenger_sticky_sessions_cookie_name`
+
+Sets [PassengerStickySessionsCookieName](https://www.phusionpassenger.com/library/config/apache/reference/#passengerstickysessionscookiename) The value is a string specifying - name
+
+##### `passenger_thread_count`
+
+Sets [PassengerThreadCount](https://www.phusionpassenger.com/library/config/apache/reference/#passengerthreadcount) The value is a string specifying - integer
+
+##### `passenger_user`
+
+Sets [PassengerUser](https://www.phusionpassenger.com/library/config/apache/reference/#passengeruser) The value is a string specifying - username
+
+##### `rack_env`
+
+Sets [RackEnv](https://www.phusionpassenger.com/library/config/apache/reference/#rackenv) The value is a string specifying - environment name
+
+##### `rails_env`
+
+Sets [RailsEnv](https://www.phusionpassenger.com/library/config/apache/reference/#railsenv) The value is a string specifying - environment name
 
 ##### `php_value` and `php_flag`
 
