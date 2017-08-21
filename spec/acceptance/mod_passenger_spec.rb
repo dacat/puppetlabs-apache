@@ -167,7 +167,7 @@ describe 'apache::mod::passenger class' do
   when 'Debian'
     context "setting passenger options within the apache 'Directory' directive" do
      it 'should allow something with no error' do
-       all_passenger_directory_options = passenger_config_options.select {|k,v| /directory/ =~ v[:Context]}
+       all_passenger_directory_options = passenger_config_options.select {|k,v| /directory/ =~ v[:context]}
        passenger_directory_options = ''
        all_passenger_directory_options.each do |k,v|
          passenger_directory_options << "'%s' => '%s',\n" % [k,'something']
@@ -204,15 +204,15 @@ describe 'apache::mod::passenger class' do
          apply_manifest(pp, :catch_failures => true)
       end
       describe file("#{$vhost_dir}/25-passenger.example.com.conf") do
-        all_passenger_directory_options = passenger_config_options.select {|k,v| /directory/ =~ v[:Context]}
+        all_passenger_directory_options = passenger_config_options.select {|k,v| /directory/ =~ v[:context]}
         all_passenger_directory_options.each do |k,v|
-          case v[:Type]
+          case v[:type]
             when 'QuotedString', 'RelPath', 'FullPath', 'Path'
-             it { is_expected.to contain "#{v[:PassOpt]} \"something\"" }
+             it { is_expected.to contain "#{v[:pass_opt]} \"something\"" }
             when 'String', 'URI', 'Integer'
-              it { is_expected.to contain "#{v[:PassOpt]} something" }
+              it { is_expected.to contain "#{v[:pass_opt]} something" }
             else
-              it { is_expected.to contain "#{v[:PassOpt]} something" }
+              it { is_expected.to contain "#{v[:pass_opt]} something" }
           end
         end
       end
