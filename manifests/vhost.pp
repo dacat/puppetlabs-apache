@@ -176,13 +176,6 @@ define apache::vhost(
   $passenger_user                                                                   = undef,
   $rack_env                                                                         = undef,
   $rails_env                                                                        = undef,
-  $union_station_filter                                                             = undef,
-  $union_station_gateway_address                                                    = undef,
-  $union_station_gateway_cert                                                       = undef,
-  $union_station_gateway_port                                                       = undef,
-  $union_station_key                                                                = undef,
-  $union_station_proxy_address                                                      = undef,
-  $union_station_support                                                            = undef,
   $add_default_charset                                                              = undef,
   $modsec_disable_vhost                                                             = undef,
   $modsec_disable_ids                                                               = undef,
@@ -296,8 +289,7 @@ define apache::vhost(
       $passenger_python or $passenger_resist_deployment_errors or $passenger_resolve_symlinks_in_document_root or $passenger_restart_dir or
       $passenger_rolling_restarts or $passenger_ruby or $passenger_spawn_method or $passenger_start_timeout or $passenger_startup_file or
       $passenger_sticky_sessions or $passenger_sticky_sessions_cookie_name or $passenger_thread_count or $passenger_user or $rack_env or
-      $rails_env or $union_station_filter or $union_station_gateway_address or $union_station_gateway_cert or $union_station_gateway_port or
-      $union_station_key or $union_station_proxy_address or $union_station_support or $passenger_base_uris or $rack_base_uris {
+      $rails_env or $passenger_base_uris or $rack_base_uris {
     if ! defined(Class['apache::mod::passenger']) {
       include ::apache::mod::passenger
     }
@@ -1050,13 +1042,6 @@ define apache::vhost(
   # - $passenger_user
   # - $rack_env
   # - $rails_env
-  # - $union_station_filter
-  # - $union_station_gateway_address
-  # - $union_station_gateway_cert
-  # - $union_station_gateway_port
-  # - $union_station_key
-  # - $union_station_proxy_address
-  # - $union_station_support
   # - $passenger_base_uris
   # - $rack_base_uris
   if $passenger_allow_encoded_slashes or $passenger_app_env or $passenger_app_group_name or $passenger_app_root or
@@ -1069,8 +1054,7 @@ define apache::vhost(
       $passenger_python or $passenger_resist_deployment_errors or $passenger_resolve_symlinks_in_document_root or $passenger_restart_dir or
       $passenger_rolling_restarts or $passenger_ruby or $passenger_spawn_method or $passenger_start_timeout or $passenger_startup_file or
       $passenger_sticky_sessions or $passenger_sticky_sessions_cookie_name or $passenger_thread_count or $passenger_user or $rack_env or
-      $rails_env or $union_station_filter or $union_station_gateway_address or $union_station_gateway_cert or $union_station_gateway_port or
-      $union_station_key or $union_station_proxy_address or $union_station_support or $passenger_base_uris or $rack_base_uris {
+      $rails_env or $passenger_base_uris or $rack_base_uris {
     concat::fragment { "${name}-passenger":
       target  => "${priority_real}${filename}.conf",
       order   => 300,

@@ -129,27 +129,6 @@
 <% if @rails_env -%>
     RailsEnv <%= @rails_env %>
 <%- end -%>
-<% if @union_station_filter -%>
-    UnionStationFilter "<%= @union_station_filter %>"
-<%- end -%>
-<% if @union_station_gateway_address -%>
-    UnionStationGatewayAddress <%= @union_station_gateway_address %>
-<%- end -%>
-<% if @union_station_gateway_cert -%>
-    UnionStationGatewayCert "<%= @union_station_gateway_cert %>"
-<%- end -%>
-<% if @union_station_gateway_port -%>
-    UnionStationGatewayPort <%= @union_station_gateway_port %>
-<%- end -%>
-<% if @union_station_key -%>
-    UnionStationKey <%= @union_station_key %>
-<%- end -%>
-<% if @union_station_proxy_address -%>
-    UnionStationProxyAddress <%= @union_station_proxy_address %>
-<%- end -%>
-<% if @union_station_support -%>
-    UnionStationSupport <%= @union_station_support %>
-<%- end -%>
 <% if @rack_base_uris -%>
   <% Array(@rack_base_uris).each do |uri| -%>
   RackBaseURI <%= uri %>

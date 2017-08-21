@@ -210,44 +210,6 @@ describe 'apache::mod::passenger class' do
           EOS
          apply_manifest(pp, :catch_failures => true)
        end
-       context 'passenger config with passenger_installed_version set' do
-         it 'should fail when an option is not valid for $passenger_installed_version' do
-           pp = <<-EOS
-          class { 'apache': }
-          class { 'apache::mod::passenger':
-            passenger_installed_version     => '4.0.0',
-            passenger_instance_registry_dir => '/some/path/to/nowhere'
-          }
-           EOS
-           apply_manifest(pp, :expect_failures => true) do |r|
-             expect(r.stderr).to match(/passenger_instance_registry_dir is not introduced until version 5.0.0/)
-           end
-         end
-         it 'should fail when an option is removed' do
-           pp = <<-EOS
-          class { 'apache': }
-          class { 'apache::mod::passenger':
-            passenger_installed_version => '5.0.0',
-            rails_autodetect            => 'on'
-          }
-           EOS
-           apply_manifest(pp, :expect_failures => true) do |r|
-             expect(r.stderr).to match(/REMOVED PASSENGER OPTION/)
-           end
-         end
-         it 'should warn when an option is deprecated' do
-           pp = <<-EOS
-          class { 'apache': }
-          class { 'apache::mod::passenger':
-            passenger_installed_version => '5.0.0',
-            rails_ruby                  => '/some/path/to/ruby'
-          }
-           EOS
-           apply_manifest(pp, :catch_failures => true) do |r|
-             expect(r.stderr).to match(/DEPRECATED PASSENGER OPTION/)
-           end
-         end
-         end
        describe file("#{$vhost_dir}/25-passenger.example.com.conf") do
          all_passenger_directory_options = passenger_config_options.select {|k,v| /directory/ =~ v[:Context]}
          all_passenger_directory_options.each do |k,v|
@@ -262,10 +224,6 @@ describe 'apache::mod::passenger class' do
          end
        end
       end
-      context "default passenger config" do
-        it 'succeeds in puppeting passenger' do
-          pp = <<-EOS
-    when 'Debian'
       context 'passenger config with passenger_installed_version set' do
         it 'should fail when an option is not valid for $passenger_installed_version' do
           pp = <<-EOS

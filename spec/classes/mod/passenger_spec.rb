@@ -105,13 +105,6 @@ describe 'apache::mod::passenger', :type => :class do
         'rails_ruby' => {type: 'String', pass_opt: :RailsRuby, context: 'server config'},
         'rails_spawn_method' => {type: 'String', pass_opt: :RailsSpawnMethod, context: 'server config'},
         'rails_user_switching' => {type: 'String', pass_opt: :RailsUserSwitching, context: 'server config'},
-        'union_station_filter' => {type: 'QuotedString', pass_opt: :UnionStationFilter, context: 'server config, virtual host, directory, .htaccess'},
-        'union_station_gateway_address' => {type: 'URI', pass_opt: :UnionStationGatewayAddress, context: 'server config, virtual host'},
-        'union_station_gateway_cert' => {type: 'FullPath', pass_opt: :UnionStationGatewayCert, context: 'server config, virtual host'},
-        'union_station_gateway_port' => {type: 'Integer', pass_opt: :UnionStationGatewayPort, context: 'server config, virtual host, directory, .htaccess'},
-        'union_station_key' => {type: 'String', pass_opt: :UnionStationKey, context: 'server config, virtual host, directory, .htaccess'},
-        'union_station_proxy_address' => {type: 'URI', pass_opt: :UnionStationProxyAddress, context: 'server config, virtual host'},
-        'union_station_support' => {type: 'URI', pass_opt: :UnionStationSupport, context: 'server config, virutal host, directory, .htaccess'},
         'wsgi_auto_detect' => {type: 'String', pass_opt: :WsgiAutoDetect, context: 'server config'},
     }
     passenger_config_options.each do |config_option, config_hash|
